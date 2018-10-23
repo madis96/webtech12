@@ -1,0 +1,33 @@
+body{
+    margin: 0px;
+}
+
+.menuButton{
+    height: 60px;
+    overflow: hidden;
+}
+
+.topBar td{
+    text-align: center;
+    background-color: inherit;
+    width: 250px;
+}
+
+.topBar{
+    background-image: linear-gradient(to bottom,#2E9AFE,#00FFFF);
+}
+
+.topBar .menuButton:hover{
+    background-image: linear-gradient(to top,#2E9AFE,#00FFFF);
+    border: 1px solid black;
+    transform:translateY(5px);
+    cursor: pointer;
+}
+
+.imgBox img{
+    width: 250px;
+}
+
+.imgBox img:hover{
+    cursor: pointer;
+}
