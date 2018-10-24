@@ -2,32 +2,87 @@ body{
     margin: 0px;
 }
 
+table{
+    border-spacing: 10px;
+    border-collapse: separate;
+}
+
 .menuButton{
-    height: 60px;
+    /*height: 30px;*/
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-left: 10px;
+    border-bottom: 1px black dashed;
+    letter-spacing: 2px;
+    width: inherit;
     overflow: hidden;
+    /*width: 50px;*/
 }
 
-.topBar td{
-    text-align: center;
-    background-color: inherit;
-    width: 250px;
-}
-
-.topBar{
-    background-image: linear-gradient(to bottom,#2E9AFE,#00FFFF);
-}
-
-.topBar .menuButton:hover{
-    background-image: linear-gradient(to top,#2E9AFE,#00FFFF);
-    border: 1px solid black;
-    transform:translateY(5px);
-    cursor: pointer;
+.menuButton:nth-child(1){
+  border-top: 1px black dashed;
 }
 
 .imgBox img{
-    width: 250px;
+    /*width: 250px;*/
+    width: 180px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 
 .imgBox img:hover{
     cursor: pointer;
+}
+
+.authorDesc{
+    text-align: center;
+    background-color: grey;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 200px;
+}
+
+.sideBar{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 200px;
+    background-image: linear-gradient(to bottom,#2E9AFE,#00FFFF);
+    border-right: 3px solid black;
+    overflow: hidden;
+}
+
+.sideBar .menuButton:hover{
+    background-image: linear-gradient(to top,#2E9AFE,#00FFFF);
+    /*border: 1px solid black;*/
+    /*transform:translateY(5px);*/
+    cursor: pointer;
+    /*border-radius: 15px;*/
+}
+
+.sideBar .menuButton:active{
+    background-image: linear-gradient(to top,black,#00FFFF);
+    /*border-radius: 15px;*/
+}
+
+.menuName{
+  margin-bottom: 15px;
+  font-size: 30px;
+  text-align:center;
+  font-weight: bold;
+  letter-spacing: 5px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+.pageContent{
+  margin-left: 210px;
+  margin-top: 10px;
 }
