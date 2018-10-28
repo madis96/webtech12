@@ -2,38 +2,85 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/index.js"></script>
 
     <title>Car_database</title>
 </head>
 <body>
     <div class="sideBar">
         <div class="imgBox">
-            <img src="images/logo.jpg" alt="logo">
+            <img src="images/logo.jpg">
         </div>
         <div class="menuName">Side Menu</div>
-          <div class="menuButton">List cars</div>
-          <div class="menuButton">List manufacturers</div>
-          <div class="menuButton">Add car</div>
-          <div class="menuButton">Add manufacturer</div>
+          <div class="menuButton" id="1">List cars</div>
+          <div class="menuButton" id="2">List manufacturers</div>
+          <div class="menuButton" id="3">Add car</div>
+          <div class="menuButton" id="4">Add manufacturer</div>
     </div>
 
 <div class="authorDesc">Mádi Szilárd - BQ1IXF</div>
 <div class="pageContent">
-<p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget sem sit amet felis commodo mattis. Nam et scelerisque est, nec aliquam nisl. Curabitur sagittis diam sed dui scelerisque ornare. Vivamus sed lacus augue. Donec ultrices eros risus, in suscipit purus dignissim at. Nam sit amet sagittis ex. Maecenas efficitur lacus sit amet mauris pellentesque, id tristique magna vehicula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin vitae maximus risus. Praesent porta ante quis enim feugiat, quis consectetur justo dapibus. Integer et elit et elit euismod maximus vitae sit amet sem. Vestibulum feugiat interdum quam ac feugiat. In aliquet, libero non aliquet aliquam, lorem felis lobortis erat, in lacinia turpis diam vitae quam. Suspendisse mattis sapien in quam iaculis tincidunt.
-</p>
-<p>
-Proin commodo tortor vitae orci tempus, vulputate scelerisque neque rhoncus. Suspendisse pellentesque, arcu ut congue porttitor, quam mauris vehicula massa, non pharetra sapien orci in turpis. Donec quis leo tempor, volutpat ipsum vel, lobortis felis. Nam efficitur risus nisl, sit amet dignissim turpis congue sit amet. Maecenas sit amet varius elit. Fusce porta sapien sed leo euismod, a hendrerit velit dignissim. In mattis rhoncus ultricies. Nunc finibus eros arcu, in congue dui ullamcorper nec. Fusce commodo purus vitae nunc vehicula lobortis. Donec mattis turpis massa, sit amet varius massa posuere vitae. Sed tempus gravida turpis eget tincidunt. Nam placerat commodo tellus, vitae facilisis mi sollicitudin ut. Nunc eu risus nisl.
-</p>
-<p>
-Sed vel cursus arcu. In vulputate finibus justo ac aliquam. Duis aliquam lacinia sem at imperdiet. Pellentesque non eros nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vel consequat nisi, et efficitur nunc. Duis fringilla, lacus et facilisis mattis, enim risus venenatis quam, sed tincidunt justo mi id nunc.
-</p>
-<p>
-Maecenas quis cursus felis, eget sollicitudin leo. Aliquam erat nulla, tincidunt pellentesque sollicitudin eu, rutrum eget libero. Nulla semper dolor at massa laoreet consequat. Suspendisse vestibulum erat fermentum tellus cursus, sit amet vestibulum eros commodo. Donec interdum mauris leo, at consequat augue condimentum eget. Ut elit odio, dapibus quis tempus ac, lacinia et dui. Fusce vitae dignissim ex. Ut elementum, leo ac maximus feugiat, mauris mi ornare lectus, sit amet maximus risus odio sed ipsum. Praesent ornare vehicula sapien, vel dictum ligula lacinia eget.
-</p>
-<p>
-Vestibulum non placerat urna. Nunc condimentum tortor et nunc placerat viverra. Proin pulvinar gravida efficitur. Aenean nec posuere ligula. Integer sodales nisl lorem, id tincidunt tellus molestie sed. Ut commodo sit amet eros id ullamcorper. Nullam pulvinar lacus dui, at congue lectus maximus sit amet. Proin pretium accumsan nisl ac varius. Ut lobortis, nunc at faucibus ultricies, lacus urna hendrerit odio, sit amet dignissim nisl erat eget neque. Etiam sit amet nisi a libero efficitur pellentesque vitae ut ante. Cras nec orci ullamcorper, consequat ex feugiat, ultrices risus. Nulla eleifend metus at elit dictum euismod.
-</p>
+  <table class="listAll">
+    <th>Manufacturer</th>
+    <th>Car name</th>
+    <tr id="1">
+        <td>Opel</td>
+        <td>Astra</td>
+    </tr>
+    <tr id="2">
+        <td>Toyota</td>
+        <td>Corolla</td>
+    </tr>
+    <tr id="3">
+        <td>Toyota</td>
+        <td>Corolla</td>
+    </tr>
+    <tr id="4">
+        <td>Toyota</td>
+        <td>Corolla</td>
+    </tr>
+    <tr id="5">
+        <td>Toyota</td>
+        <td>Corolla</td>
+    </tr>
+  </table>
+<!--
+  <div class="informationPopUp">
+    <div class="exitPopUp">
+      <img src="images/exit.png">
+    </div>
+      <div class="informationImgBox">
+          <img src="images/logo.jpg">
+      </div>
+      <table class="informationTable">
+          <tr>
+              <td>Manufacturers:</td>
+              <td>Opel</td>
+          </tr>
+          <tr>
+              <td>Car name:</td>
+              <td>Astra</td>
+          </tr>
+          <tr>
+              <td>Color:</td>
+              <td>Grey</td>
+          </tr>
+          <tr>
+              <td>Year:</td>
+              <td>2003</td>
+          </tr>
+          <tr>
+              <td>Horsepower:</td>
+              <td>100</td>
+          </tr>
+          <tr>
+              <td>Consumption:</td>
+              <td>7l/100km</td>
+          </tr>
+      </table>
+      <div class="available">Currently available</div>
+  </div>-->
 </div>
 </body>
 </html>
