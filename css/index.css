@@ -124,6 +124,10 @@ table{
 .listAll td{
   padding-top: 5px;
   width: 50%;
+  border-right: 2px solid black;
+  border-left: 2px solid black;
+  border-bottom: 1px dashed black;
+  text-transform: capitalize;
 }
 
 .listAll tr{
@@ -151,17 +155,11 @@ table{
   border-bottom: 3px solid black;
 }
 
-.listAll td{
-  border-right: 2px solid black;
-  border-left: 2px solid black;
-  border-bottom: 1px dashed black;
-}
-
 .informationPopUp{
   position: fixed;
   top: 25%;
   left: 35%;
-  height: 350px;
+  height: 300px;
   width: 500px;
   border: 2px solid black;
   background-color: grey;
@@ -181,18 +179,12 @@ table{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  text-align: center;
+  text-align: left;
+  line-height: 25px;
 }
 
-.informationTable td{
-  width: 50%;
-}
-
-.available{
-  margin-top: 15px;
-  font-size: 20px;
-  letter-spacing: 2px;
-  text-align: center;
+.informationTable td:nth-child(odd){
+  width: 75%;
 }
 
 .exitPopUp img{
@@ -203,6 +195,14 @@ table{
   top: 0;
 }
 
-.exitPopUp img:hover{
+.exitPopUp img:hover, .hiddenBackground{
   cursor: pointer;
+}
+
+.hiddenBackground{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
