@@ -1,17 +1,9 @@
 $( document ).ready(function() {
-    //if needed to create it automatically then uncomment it!
-    //loadSideMenu();
+    loadSideMenu();
 
     loadMainPage();
 
-    //sideMenu button/img(logo) click handler
     sideMenuHandler();
-    /*sideMenuButtonHandler();
-    imgClickHandler();*/
-
-    //listCars table(/exit) click handler
-    //carListClickHandler();
-    //exitPopUpHandler();
 });
 
 
@@ -50,24 +42,21 @@ function setPageContent(content){
   switch(content)
   {
     case "1":
-      pageContent = "List all cars from database";
-      loadListCars();
+      $(".pageContent").load("carList.html");
       break;
     case "2":
-      pageContent = "List all manufacturers from database";
-      loadListManufacturers();
+      $(".pageContent").load("manufacturerList.html");
       break;
     case "3":
-      pageContent = "Add car to database";
+      $(".pageContent").load("addCar.html");
       break;
     case "4":
-      pageContent = "Add manufacturer to database";
+      $(".pageContent").load("addManufacturer.html");
       break;
     case "mainPage":
       loadMainPage();
       break;
   }
-  //$(".pageContent").html(pageContent);
 }
 
 //mainPage content (img, welcomeText, and some text)
@@ -80,54 +69,6 @@ function loadMainPage(){
     var loremIpsum = $("<div>").addClass("loremIpsum").appendTo(pageContent);
 		$(welcomeText).html("Welcome in my page!");
     $(loremIpsum).html("Here comes lorem ipsum texts");
-}
-
-//AddCar content (form with input, button, etc.)
-function loadAddCar(){
-
-}
-
-//AddManufacturer content (form with input, button, etc.)
-function loadAddManufacturer(){
-
-}
-
-//ListCars content (table with datas from cars)
-function loadListCars(){
-  var pageContent = $(".pageContent");
-  var list = $("<table>").addClass("listAll").appendTo(pageContent);
-  var thL = $("<th>").appendTo(list);
-  var thR = $("<th>").appendTo(list);
-  $(thL).html("Manufacturer");
-  $(thR).html("Car name");
-
-  $.getJSON('cars', function (data) {
-       $.each(data, function (key, value) {
-         var row = $("<tr>").attr("id",key + 1).appendTo(list);
-         var colL = $("<td>").attr("id", key + 1 + "L").appendTo(row);
-         var colR = $("<td>").attr("id", key + 1 + "R").appendTo(row);
-         $(colL).html(value.manufacturer);
-         $(colR).html(value.name);
-      });
-      carListClickHandler();
-   });
-}
-
-//ListManufacturers content (table with datas from manufacturers)
-function loadListManufacturers(){
-  var pageContent = $(".pageContent");
-  var list = $("<table>").addClass("listAll").appendTo(pageContent);
-  var thL = $("<th>").appendTo(list);
-  $(thL).html("Manufacturer name");
-
-  $.getJSON('manufacturers', function (data) {
-       $.each(data, function (key, value) {
-         var row = $("<tr>").attr("id",key).appendTo(list);
-         var colL = $("<td>").attr("id", key + 1 + "L").appendTo(row);
-         $(colL).html(value.name);
-      });
-      manufacturersListClickHandler()
-   });
 }
 
 //if needed then here you can create it automatically
@@ -153,40 +94,20 @@ function loadSideMenu(){
   sideMenuHandler();
 }
 
-function carListClickHandler(){
-  $(".listAll tr:not(:first-child)").on("click", function(){
-    popUpRemoveOnlyClick();
-    var id = this.id;
-    var body = document.getElementsByTagName("BODY");
-    var disableClick = $("<div>").addClass("hiddenBackground").appendTo(body);
-    var informationPopUp = $("<div>").addClass("informationPopUp").appendTo(body);
-    var exitPopUpImgBox = $("<div>").addClass("exitPopUp").appendTo(informationPopUp);
-      var exitImg = $("<img>").appendTo(exitPopUpImgBox);
-      $(exitImg).attr("src", "images/exit.png");
-    var imgBox = $("<div>").addClass("informationImgBox").appendTo(informationPopUp);
-      var img = $("<img>").appendTo(imgBox);
-      $(img).attr("src", "images/logo.jpg");
-    var table = $("<div>").addClass("informationTable").appendTo(informationPopUp);
-
-      $.getJSON('cars', function (data) {
-        var carData = ['manufacturer', 'name'];
-        $.each(data[id-1], function (key, value) {
-            var row = $("<tr>").appendTo(table);
-              var colL = $("<td>").appendTo(row);
-              var colR = $("<td>").appendTo(row);
-              $(colL).html(firstLetterUpperCase(key));
-              $(colR).html(value);
-          });
-       });
-    exitPopUpHandler();
-  });
-
-}
-
 function firstLetterUpperCase(string){
   var firstChar = string.substring( 0, 1 );
   var bigFirstChar = firstChar.toUpperCase();
   return string.replace(firstChar, bigFirstChar);
+}
+
+function firstLetterLowerCase(string){
+  var firstChar = string.substring( 0, 1 );
+  var lowFirstChar = firstChar.toLowerCase();
+  return string.replace(firstChar, lowFirstChar);
+}
+
+function checkImgExist(object, src) {
+  return $(object).attr('src', src);
 }
 
 //close popUp if press 'X' button or click outside of the popUp
@@ -203,39 +124,4 @@ function exitPopUpHandler(){
 function popUpRemoveOnlyClick(){
   $(".informationPopUp").remove();
   $(".hiddenBackground").remove();
-}
-
-function getAllCars(){
-  $.getJSON('cars', function (data) {
-       console.log(data);
-   })
-}
-
-function manufacturersListClickHandler(){
-  $(".listAll tr:not(:first-child)").on("click", function(){
-    popUpRemoveOnlyClick();
-    var id = this.id;
-    var body = document.getElementsByTagName("BODY");
-    var disableClick = $("<div>").addClass("hiddenBackground").appendTo(body);
-    var informationPopUp = $("<div>").addClass("informationPopUp").appendTo(body);
-    var exitPopUpImgBox = $("<div>").addClass("exitPopUp").appendTo(informationPopUp);
-      var exitImg = $("<img>").appendTo(exitPopUpImgBox);
-      $(exitImg).attr("src", "images/exit.png");
-    var imgBox = $("<div>").addClass("informationImgBox").appendTo(informationPopUp);
-      var img = $("<img>").appendTo(imgBox);
-      $(img).attr("src", "images/logo.jpg");
-    var table = $("<div>").addClass("informationTable").appendTo(informationPopUp);
-
-      $.getJSON('manufacturers', function (data) {
-        $.each(data[id-1], function (key, value) {
-            var row = $("<tr>").appendTo(table);
-              var colL = $("<td>").appendTo(row);
-              var colR = $("<td>").appendTo(row);
-              $(colL).html(firstLetterUpperCase(key));
-              $(colR).html(value);
-          });
-       });
-    exitPopUpHandler();
-  });
-
 }

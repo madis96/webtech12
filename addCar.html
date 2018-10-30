@@ -1,0 +1,45 @@
+<script>
+  var carData = ["name", "consumption", "color", "manufacturer", "year", "available", "horsepower"];
+  var carDataType = ["text", "text", "text", "text", "number", "number", "number"];
+  var pageContent = $(".pageContent");
+  var form = $("<form>").appendTo(pageContent);
+  $(form).attr({
+    action: "addCar",
+    method: "post"
+  })
+  var table = $("<table>").addClass("addList").appendTo(form);
+    $.each(carData, function(key, value){
+      var row = $("<tr>").appendTo(table);
+      var colL = $("<td>").appendTo(row);
+      var colR = $("<td>").appendTo(row);
+        $(colL).html(firstLetterUpperCase(value) + ":");
+        if(value == "manufacturer")
+        {
+          var input = $("<select>").addClass("addInput").appendTo(colR);
+          $(input).attr({
+            name: value,
+            required: "required"
+          })
+          $.getJSON('manufacturerNames', function(data){
+            $.each(data, function(key, value){
+              var option = $("<option>").appendTo(input);
+                $(option).attr("value", firstLetterUpperCase(value));
+                $(option).html(firstLetterUpperCase(value));
+            })
+          })
+        }
+        else {
+          var input = $("<input>").addClass("addInput").appendTo(colR);
+          $(input).attr({
+            name: value,
+            type: carDataType[key],
+            required: "required"
+          })
+        }
+      });
+      var submit = $("<input>").addClass("addInput").appendTo(table);
+      $(submit).attr({
+          type: "submit",
+          value: "Add Car"
+      });
+</script>

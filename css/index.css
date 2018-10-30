@@ -121,6 +121,14 @@ table{
   border-spacing: 0px;
 }
 
+.listAll, .sideBar, .informationPopUp{
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  user-select: none;
+}
+
 .listAll td{
   padding-top: 5px;
   width: 50%;
@@ -159,7 +167,7 @@ table{
   position: fixed;
   top: 25%;
   left: 35%;
-  height: 300px;
+  height: 350px;
   width: 500px;
   border: 2px solid black;
   background-color: grey;
@@ -172,6 +180,7 @@ table{
   margin-top: 15px;
   margin-bottom: 15px;
   width: 50%;
+  height: 35%;
 }
 
 .informationTable{
@@ -179,12 +188,21 @@ table{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  text-align: left;
   line-height: 25px;
 }
 
 .informationTable td:nth-child(odd){
-  width: 75%;
+  width: 100px;
+  text-align: left;
+}
+
+.informationTable tr:hover td{
+  border-bottom: 1px solid blue;
+}
+
+.informationTable td:nth-child(even){
+  width: 200px;
+  text-align: right;
 }
 
 .exitPopUp img{
@@ -205,4 +223,13 @@ table{
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+.addInput{
+  width: 100%;
+  height: 25px;
+}
+
+.addList{
+  border: 2px solid black;
 }
