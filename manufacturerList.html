@@ -39,9 +39,34 @@ $.getJSON('manufacturers', function (data) {
                $(colL).html(firstLetterUpperCase(key));
                $(colR).html(value);
            });
+           document.cookie = "name=" + data[id].name;
+           getCarsByCookies();
         });
      exitPopUpHandler();
    });
 
+ }
+
+ function getCarsByCookies(){
+   var carsInList = "";
+   var counter = 0;
+   $.getJSON('manufacturer', function(data){
+     $.each(data, function(key, value){
+       counter++;
+       carsInList = appendToString(carsInList, value.name);
+       //console.log(value.name);
+     });
+     if(counter > 0)
+      console.log(carsInList);
+    else
+      console.log("No cars from this manufacturer" + data);
+   });
+ }
+
+ function appendToString(string, append){
+   if(string == "")
+      return append;
+    else
+      return string.concat(", " + append);
  }
 </script>

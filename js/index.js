@@ -3,7 +3,7 @@ $( document ).ready(function() {
 
     loadMainPage();
 
-    sideMenuHandler();
+    //sideMenuHandler();
 });
 
 
@@ -25,6 +25,10 @@ function sideMenuButtonHandler(){
 function imgClickHandler(){
   $(".imgBox").on("click", function()
   {
+    /*$.get('', function (file, state) {
+      if(state == 'success')
+        console.log(file);
+    });*/
     setPageContent("mainPage");
     $(".menuButton").removeClass("selected");
   });
@@ -53,6 +57,9 @@ function setPageContent(content){
     case "4":
       $(".pageContent").load("addManufacturer.html");
       break;
+    case "5":
+      $(".pageContent").load("lastVisitedManufacturer.html");
+      break;
     case "mainPage":
       loadMainPage();
       break;
@@ -73,7 +80,7 @@ function loadMainPage(){
 
 //if needed then here you can create it automatically
 function loadSideMenu(){
-  var menuButtons = ["List cars", "List manufacturers", "Add car", "Add manufacturer"];
+  var menuButtons = ["List cars", "List manufacturers", "Add car", "Add manufacturer", "Last visited Manufacturer"];
   var body = document.getElementsByTagName("BODY");
   var sideBar = $("<div>").addClass("sideBar").appendTo(body);
   var imgBox = $("<div>").addClass("imgBox").appendTo(sideBar);
@@ -104,10 +111,6 @@ function firstLetterLowerCase(string){
   var firstChar = string.substring( 0, 1 );
   var lowFirstChar = firstChar.toLowerCase();
   return string.replace(firstChar, lowFirstChar);
-}
-
-function checkImgExist(object, src) {
-  return $(object).attr('src', src);
 }
 
 //close popUp if press 'X' button or click outside of the popUp
