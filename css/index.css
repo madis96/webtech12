@@ -8,7 +8,6 @@ table{
 }
 
 .menuButton{
-    /*height: 30px;*/
     padding-bottom: 5px;
     padding-top: 5px;
     padding-left: 10px;
@@ -16,7 +15,7 @@ table{
     letter-spacing: 2px;
     width: inherit;
     overflow: hidden;
-    /*width: 50px;*/
+    color: #1e607a;
 }
 
 .menuButton:nth-child(1){
@@ -65,21 +64,23 @@ table{
     overflow: hidden;
 }
 
+.sideBar .menuButton:not(.selected):hover{
+    background-image: linear-gradient(to top,#2e6ffe,#00FFFF);
+    color: black;
+}
+
 .sideBar .menuButton:hover{
-    background-image: linear-gradient(to top,#2E9AFE,#00FFFF);
-    /*border: 1px solid black;*/
-    /*transform:translateY(5px);*/
     cursor: pointer;
-    /*border-radius: 15px;*/
 }
 
 .sideBar .menuButton:active{
-    background-image: linear-gradient(to top,black,#00FFFF);
+    background-image: linear-gradient(to top,#A8E4FF,#00FFFF);
     /*border-radius: 15px;*/
 }
 
 .selected{
-  background-image: linear-gradient(to left, black, #00FFFF);
+  background-image: linear-gradient(to right bottom,#2e6ffe,#00FFFF);
+  color: black;
 }
 
 .menuName{
@@ -196,8 +197,8 @@ table{
   text-align: left;
 }
 
-.informationTable tr:hover td{
-  border-bottom: 1px solid blue;
+.informationTable tr:hover{
+  background: linear-gradient(to bottom, grey, white);
 }
 
 .informationTable td:nth-child(even){
