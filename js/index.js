@@ -6,6 +6,44 @@ $( document ).ready(function() {
     //sideMenuHandler();
 });
 
+function addCarSubmitHandler(){
+  $("form").on("submit", function(e){
+    e.preventDefault();
+
+    $.ajax({
+      type: "post",
+      url: "addCar",
+      data: $("form").serialize(),
+      success: function(){
+        $(".pageContent").empty();
+        listCarsPage();
+      },
+      error: function(){
+        alert("Error");
+      }
+    });
+  });
+}
+
+function addManufacturerSubmitHandler(){
+  $("form").on("submit", function(e){
+    e.preventDefault();
+
+    $.ajax({
+      type: "post",
+      url: "addManufacturers",
+      data: $("form").serialize(),
+      success: function(){
+        $(".pageContent").empty();
+        listManufacturersPage();
+      },
+      error: function(){
+        alert("Error");
+      }
+    });
+  });
+}
+
 
 /*--------------------------------------------------------
     handle of which sideMenu button was pressed
@@ -47,7 +85,6 @@ function sideMenuHandler(){
     handle of which page needs to be loaded
 --------------------------------------------------------*/
 function setPageContent(content){
-  var pageContent;
   $(".pageContent").empty();
   switch(content)
   {
@@ -88,7 +125,7 @@ function loadMainPage(){
     var welcomeText = $("<div>").addClass("welcomeText").appendTo(pageContent);
     var loremIpsum = $("<div>").addClass("loremIpsum").appendTo(pageContent);
 		$(welcomeText).html("Welcome in my page!");
-    $(loremIpsum).html("Here comes lorem ipsum texts");
+    $(loremIpsum).load("lorem.html");
 }
 
 /*--------------------------------------------------------
@@ -303,12 +340,21 @@ function loadAddManufacturerPage(){
         required: "required"
       })
     });
-  var submit = $("<input>").addClass("addInput").appendTo(table);
+  var submit = $("<input>").addClass("addInput addManufacturer").appendTo(table);
   $(submit).attr({
       type: "submit",
-      value: "Add Manufacturer"
+      value: "Add Manufacturer",
+      id: "addManufacturer"
     });
+    addManufacturerSubmitHandler();
 }
+/*
+$(function(){
+  $("form").on("submit", function(e){
+    e.preventDefault();
+    alert("teszt");
+  })
+})*/
 
 /*--------------------------------------------------------
     load addCar page
@@ -355,8 +401,10 @@ function loadAddCarPage(){
     var submit = $("<input>").addClass("addInput").appendTo(table);
     $(submit).attr({
         type: "submit",
-        value: "Add Car"
+        value: "Add Car",
+        id: "addCar"
     });
+    addCarSubmitHandler();
 }
 
 /*--------------------------------------------------------
