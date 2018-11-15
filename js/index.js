@@ -118,7 +118,7 @@ function setPageContent(content){
     mainPage content (img, welcomeText, and some text)
 --------------------------------------------------------*/
 function loadMainPage(){
-    var pageContent = document.getElementsByClassName("pageContent");
+    var pageContent = $(".pageContent");
 		var mainImg = $("<div>").addClass("mainImg").appendTo(pageContent);
     var img = $("<img>").appendTo(mainImg);
     $(img).attr("src","images/logo.jpg");
@@ -133,7 +133,8 @@ function loadMainPage(){
 --------------------------------------------------------*/
 function loadSideMenu(){
   var menuButtons = ["List cars", "List manufacturers", "Add car", "Add manufacturer", "Last visited Manufacturer"];
-  var body = document.getElementsByTagName("BODY");
+  //var body = document.getElementsByTagName("BODY");
+  var body = $("body");
   var sideBar = $("<div>").addClass("sideBar").appendTo(body);
   var imgBox = $("<div>").addClass("imgBox").appendTo(sideBar);
   var img = $("<img>").appendTo(imgBox);
@@ -183,7 +184,7 @@ function carListClickHandler(){
  $(".listAll tr:not(:first-child)").on("click", function(){
    popUpRemoveOnlyClick();
    var id = this.id;
-   var body = document.getElementsByTagName("BODY");
+   var body = $("body");
    var disableClick = $("<div>").addClass("hiddenBackground").appendTo(body);
    var informationPopUp = $("<div>").addClass("informationPopUp").appendTo(body);
    var exitPopUpImgBox = $("<div>").addClass("exitPopUp").appendTo(informationPopUp);
@@ -235,7 +236,7 @@ function listManufacturersPage(){
    $(".listAll tr:not(:first-child)").on("click", function(){
      popUpRemoveOnlyClick();
      var id = this.id;
-     var body = document.getElementsByTagName("BODY");
+     var body = $("body");
      var disableClick = $("<div>").addClass("hiddenBackground").appendTo(body);
      var informationPopUp = $("<div>").addClass("informationPopUp").appendTo(body);
      var exitPopUpImgBox = $("<div>").addClass("exitPopUp").appendTo(informationPopUp);
