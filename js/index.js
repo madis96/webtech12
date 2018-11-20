@@ -2,10 +2,11 @@ $( document ).ready(function() {
     loadSideMenu();
 
     loadMainPage();
-
-    //sideMenuHandler();
 });
 
+/*--------------------------------------------------------
+    handle 'sumbit' button on addCar page
+--------------------------------------------------------*/
 function addCarSubmitHandler(){
   $("form").on("submit", function(e){
     e.preventDefault();
@@ -17,6 +18,7 @@ function addCarSubmitHandler(){
       success: function(){
         $(".pageContent").empty();
         listCarsPage();
+        handleMenus(1);
       },
       error: function(){
         alert("Error");
@@ -25,6 +27,9 @@ function addCarSubmitHandler(){
   });
 }
 
+/*--------------------------------------------------------
+    handle 'sumbit' button on addManufacturer page
+--------------------------------------------------------*/
 function addManufacturerSubmitHandler(){
   $("form").on("submit", function(e){
     e.preventDefault();
@@ -36,6 +41,7 @@ function addManufacturerSubmitHandler(){
       success: function(){
         $(".pageContent").empty();
         listManufacturersPage();
+        handleMenus(2);
       },
       error: function(){
         alert("Error");
@@ -43,7 +49,6 @@ function addManufacturerSubmitHandler(){
     });
   });
 }
-
 
 /*--------------------------------------------------------
     handle of which sideMenu button was pressed
@@ -89,23 +94,18 @@ function setPageContent(content){
   switch(content)
   {
     case "1":
-      //$(".pageContent").load("carList.html");
       listCarsPage();
       break;
     case "2":
-      //$(".pageContent").load("manufacturerList.html");
       listManufacturersPage();
       break;
     case "3":
-      //$(".pageContent").load("addCar.html");
       loadAddCarPage();
       break;
     case "4":
-      //$(".pageContent").load("addManufacturer.html");
       loadAddManufacturerPage();
       break;
     case "5":
-      //$(".pageContent").load("lastVisitedManufacturer.html");
       listLastVisited();
       break;
     case "mainPage":
@@ -133,7 +133,6 @@ function loadMainPage(){
 --------------------------------------------------------*/
 function loadSideMenu(){
   var menuButtons = ["List cars", "List manufacturers", "Add car", "Add manufacturer", "Last visited Manufacturer"];
-  //var body = document.getElementsByTagName("BODY");
   var body = $("body");
   var sideBar = $("<div>").addClass("sideBar").appendTo(body);
   var imgBox = $("<div>").addClass("imgBox").appendTo(sideBar);
@@ -155,7 +154,7 @@ function loadSideMenu(){
 }
 
 /*--------------------------------------------------------
-    sListCars content (table with datas from cars)
+    ListCars content (table with datas from cars)
 --------------------------------------------------------*/
 function listCarsPage(){
   var pageContent = $(".pageContent");
@@ -349,13 +348,6 @@ function loadAddManufacturerPage(){
     });
     addManufacturerSubmitHandler();
 }
-/*
-$(function(){
-  $("form").on("submit", function(e){
-    e.preventDefault();
-    alert("teszt");
-  })
-})*/
 
 /*--------------------------------------------------------
     load addCar page
@@ -446,4 +438,15 @@ function exitPopUpHandler(){
 function popUpRemoveOnlyClick(){
   $(".informationPopUp").remove();
   $(".hiddenBackground").remove();
+}
+
+/*--------------------------------------------------------
+    set 'selected' menu by ID
+--------------------------------------------------------*/
+function handleMenus(menuID){
+  if(!$("#"+menuID).hasClass("selected"))
+  {
+    $("#"+menuID).addClass("selected");
+    $(".menuButton").not("#"+menuID).removeClass("selected");
+  }
 }
